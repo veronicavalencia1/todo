@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html ng-app="proye">
+<head>
+<title>Todo</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="localController.js"></script>
+<script src="localConstants.js"></script>
+<script src="localRoute.js"></script>
+<script src="localServices.js"></script>
+</head>
+
+<body  ng-controller="proye">
+
+	 <header>
+		  <link rel="stylesheet" href="css/main.css">
+		  <link rel="stylesheet" href="css/fonts.css">
+		   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<div class="menu_bar">
+			<a href="#" class="bt-menu"><span class="icon-menu"></span>Menu</a>
+		</div>
+ 
+		<nav>
+			<ul>
+				<li><a href="#"><span class="icon-home3"></span>Inicio</a></li>
+				<li><a href="#"><span class="icon-spoon-knife"></span>Comidas</a></li>
+				<li><a href="#"><span class="icon-bug"></span>Animales</a></li>
+				<li><a href="#"><span class="icon-airplane"></span>Lugares</a></li>
+				<li><a href="#"><span class="icon-accessibility"></span>Contactos</a></li>
+			</ul>
+		</nav>
+	</header>
+    <section>
+    <center><img src="https://s-media-cache-ak0.pinimg.com/564x/00/04/5d/00045d2984c9cd7a61edeefa48c114a5.jpg" width="400" height="350"/></center>
+<p>
+El verdadero sentido de la vida está en apreciar y valorar lo
+que Dios nos ha dado, naturaleza, animales y a nosotros mismos,
+disfruta de todo esto y sentirás a Dios en tu vida.
+
+Una vez un hombre tuvo un sueño,soño que la vida era un gozo,
+desperto y vió que la vida era un deber, actuó y
+entendió que el deber cumplido es un gozo.
+
+En la vida, en ocasiones, hay que decidir entre lo que debes hacer
+y lo que quieres hacer. Haz lo que debes y harás feliz a los demás,
+haz lo que quieres y te harás feliz a ti mismo.
+</p>
+
+    </section>
+       <script src="http://code.jquery.com/jquery-latest.js"></script>
+    
+    
+
+</body>
+<script>
+$(document).ready(main);
+ 
+var contador = 1;
+ 
+function main(){
+	$('.menu_bar').click(function(){
+		$('nav').toggle(); 
+ 
+		if(contador == 1){
+			$('nav').animate({
+				left: '0'
+			});
+			contador = 0;
+		} else {
+			contador = 1;
+			$('nav').animate({
+				left: '-100%'
+			});
+		}
+ 
+	});
+ 
+};
+
+
+</script>
+
+<center><h3>TAREAS</h3></center>
+<section id="wrapper-add-todo">
+	<input  id="input" type="text" ng-model="newTodo" required="" />
+	<button id="button" ng-click="addTodo()"">SAVE</button>
+	<button id="delete" ng-click="removeAllTodo()">DELETE</button>
+</section>
+<section id="wrapper-todo">
+	<div class="todo-item" ng-repeat="todoItem in todo">
+		{{todoItem.name}}
+		<span class="remove" ng-click="removeItemTodo($index)" class="icon-bin"	></span>
+	</div>
+</section>

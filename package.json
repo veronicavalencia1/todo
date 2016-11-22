@@ -1,0 +1,10 @@
+{
+  "name": "local",
+  "version": "1.0.0",
+  "description": "website about bacon",
+  "main": "local.html",
+  "author": "veronica.valencia",
+  "devDependencies": {
+    "grunt-contrib-cssmin": "^1.0.2"
+  }
+}
